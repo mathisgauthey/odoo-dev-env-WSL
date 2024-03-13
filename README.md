@@ -32,7 +32,7 @@ TYPE DATABASE USER ADRESS METHOD
 local all odoo scram-sha-256
 ```
 
-![pg_hba.conf](static/image.png)
+![pg_hba.conf](https://github.com/mathisgauthey/odoo-dev-env-WSL/assets/46576952/951ce90e-6306-437c-8a82-7d1168c9225a)
 
 NOTE: You can also use a Docker container using Rancher Desktop installed on Windows for a more production-like environment and less struggle for setting up the database.
 
