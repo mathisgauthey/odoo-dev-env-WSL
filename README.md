@@ -8,16 +8,16 @@ File structure :
     ├── .vscode/
     ├── odoo/
     ├── odoo_venv/
-    ├── setup.sh
+    ├── LICENSE
     ├── README.md
-    └── LICENSE
+    └── setup.sh
 ```
 
-## How to setup a odoo dev env
+## How to setup a odoo dev environment on Windows using WSL
 
 ### Install WSL
 
-1. Install WSL using `CMD` : `wsl --install` will install the Ubuntu LTS version.
+1. Install WSL by opening a `CMD` and using the following command : `wsl --install`. This will install the Ubuntu LTS[^1] version.
 2. `sudo apt update && sudo apt upgrade`.
 
 ### Setup a database using PostgreSQL
@@ -38,9 +38,9 @@ NOTE: You can also use a Docker container using Rancher Desktop installed on Win
 
 ### Setup your dev environment
 
-4. Clone this repository.
-5. Go inside the repo and use `bash setup.sh` to :
-   1. Install the required dependencies.
+1. Clone this repository.
+2. Go inside the repo using `cd` and use `bash setup.sh` to :
+   1. Install the required Ubuntu dependencies.
    2. Clone Odoo source code.
    3. Setup a python virtual environment.
    4. Install Odoo specific dependencies inside the python venv.
@@ -50,3 +50,5 @@ You can now start the Odoo server using `./odoo/odoo-bin` and access it using `l
 If you're on VSCODE, simply press `CTRL+F5` to start the server, or `F5` to start the server in debug mode.
 
 If you're using Jetbrains softwares such as PyCharm or Intellij IDEA, inspire yourself from the `.vscode/launch.json` file to setup your launch and debug configuration.
+
+[^1]: Long Term Support
