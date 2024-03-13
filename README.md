@@ -51,4 +51,72 @@ If you're on VSCODE, simply press `CTRL+F5` to start the server, or `F5` to star
 
 If you're using Jetbrains softwares such as PyCharm or Intellij IDEA, inspire yourself from the `.vscode/launch.json` file to setup your launch and debug configuration.
 
+### Use and create Odoo modules
+
+Based on [odoo docs](https://www.odoo.com/documentation/17.0/developer/tutorials/getting_started/01_architecture.html#module-structure), the following directory structure should be applied when developping odoo addons:
+
+```txt
+.
+└── REPO_NAME/
+    ├── .git/
+    ├── MODULE_NAME/
+    │   ├── data/
+    │   ├── models/
+    │   ├── controllers/
+    │   ├── views/
+    │   ├── static/
+    │   ├── wizard/
+    │   ├── report/
+    │   ├── tests/
+    │   ├── __init__.py
+    │   ├── __manifest__.py
+    │   └── ... # Other module files and folders (Detailled below)
+    ├── .gitignore
+    ├── LICENSE
+    ├── README.md
+    └── requirements.txt
+```
+
+Odoo.sh is handling `requirements.txt` files in [the parent folder of the module](https://www.odoo.com/documentation/17.0/administration/odoo_sh/advanced/containers.html#overview). We're not using Odoo.sh, but we could still use the same structure to keep things consistent.
+
+If you don't use Odoo.sh, you might need to use a bash script that looks for `requirements.txt` files and install the required dependencies.
+
+You can find informations about [coding guidelines in details here](https://www.odoo.com/documentation/17.0/contributing/development/coding_guidelines.html).
+
+> A module is organized in important directories. Those contain the business logic; having a look at them should make you understand the purpose of the module.
+>
+> - data/ : demo and data xml
+> - models/ : models definition
+> - controllers/ : contains controllers (HTTP routes)
+> - views/ : contains the views and templates
+> - static/ : contains the web assets, separated into css/, js/, img/, lib/, …
+>
+> Other optional directories compose the module:
+>
+> - wizard/ : regroups the transient models (models.TransientModel) and their views
+> - report/ : contains the printable reports and models based on SQL views. Python objects and XML views are included in this directory
+> - tests/ : contains the Python tests
+
+## Configure Odoo
+
+to configure Odoo, we get to choose if we prefer to use :
+
+- [The `odoo.conf` file](https://www.odoo.com/documentation/17.0/administration/install/deploy.html)
+- [The command line arguments](https://www.odoo.com/documentation/17.0/developer/reference/cli.html#cmdoption-odoo-bin-d) by replacing or adding to the default Docker `CMD` with `odoo --ARG_NAME ARG_VALUE` in the `Dockerfile` file.
+
+A good practice is to **use only one** of the two methods to configure Odoo.
+
+Note that some arguments are [named differently](https://www.odoo.com/documentation/17.0/developer/reference/cli.html#configuration-file) depending on the method used :
+
+- `--db-filter` becomes `dbfilter` in `odoo.conf`
+- `--database` becomes `db_name` in `odoo.conf`
+- `--addons-path` becomes `addons_path` in `odoo.conf`
+- `--data-dir` becomes `data_dir` in `odoo.conf`
+
+We're using WSL here and will be using launch arguments in the `launch.json` file.
+
+## How to debug
+
+Press `F5` to start the server and `F5` to start it in debug mode. You can then set breakpoints and use the debug console to interact with the server.
+
 [^1]: Long Term Support
