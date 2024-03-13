@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Odoo",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "${workspaceRoot}/odoo_venv/bin/python3",
+            "program": "${workspaceRoot}/odoo/odoo-bin",
+            "args": [
+                "--dev",
+                "all",
+                "-d",
+                "odoo-db",
+                "-r",
+                "odoo",
+                "-w",
+                "odoo",
+                "--limit-time-real",
+                "99999999",
+                "--addons-path",
+                "${workspaceRoot}/odoo/addons,${workspaceRoot}/odoo/odoo/addons,${workspaceRoot}/odoo/dev/odoo-api-rest,${workspaceRoot}/odoo/dev/ouktuva-odoo-addons",
+                "-u",
+                "okteo_ouktuva"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
