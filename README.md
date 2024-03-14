@@ -97,6 +97,8 @@ You can find informations about [coding guidelines in details here](https://www.
 > - report/ : contains the printable reports and models based on SQL views. Python objects and XML views are included in this directory
 > - tests/ : contains the Python tests
 
+I'd recommend to add a `odoo-dev-env-WSL/odoo/dev/` folder to store your modules and use the `--addons_path` argument to add it to the Odoo server. You can inspire yourself from the `launch.json` file to do so.
+
 ## Configure Odoo
 
 to configure Odoo, we get to choose if we prefer to use :
