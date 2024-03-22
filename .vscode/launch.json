@@ -8,7 +8,7 @@
             "name": "Python Odoo",
             "type": "debugpy",
             "request": "launch",
-            "python": "${workspaceRoot}/odoo_venv/bin/python3",
+            "python": "${workspaceRoot}/venv_odoo/bin/python3",
             "program": "${workspaceRoot}/odoo/odoo-bin",
             "args": [
                 "--dev",
@@ -23,8 +23,10 @@
                 "99999999",
                 "--addons-path",
                 "${workspaceRoot}/odoo/addons,${workspaceRoot}/odoo/odoo/addons,${workspaceRoot}/odoo/dev/odoo-api-rest,${workspaceRoot}/odoo/dev/ouktuva-odoo-addons",
+                "-i",
+                "odoo_api_rest,okteo_ouktuva",
                 "-u",
-                "okteo_ouktuva"
+                "odoo_api_rest,okteo_ouktuva"
             ],
             "console": "integratedTerminal"
         }
