@@ -121,4 +121,10 @@ We're using WSL here and will be using launch arguments in the `launch.json` fil
 
 Press `F5` to start the server and `F5` to start it in debug mode. You can then set breakpoints and use the debug console to interact with the server.
 
+## How to start fresh
+
+1. Stop your server.
+2. Use `bash drop_db.sh` to drop the database.
+3. Relaunch the server to install and upgrade the plugins automatically.
+
 [^1]: Long Term Support
