@@ -5,14 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Odoo",
+            "name": "Odoo WSL",
             "type": "debugpy",
             "request": "launch",
-            "python": "${workspaceRoot}/venv_odoo/bin/python3",
-            "program": "${workspaceRoot}/odoo/odoo-bin",
+            "python": "${workspaceFolder}/venv/bin/python3",
+            "program": "${workspaceFolder}/src/odoo/odoo-bin",
             "args": [
-                "--dev",
-                "all",
                 "-d",
                 "odoo-db",
                 "-r",
@@ -20,15 +18,65 @@
                 "-w",
                 "odoo",
                 "--limit-time-real",
-                "99999999",
+                "999999999",
                 "--addons-path",
-                "${workspaceRoot}/odoo/addons,${workspaceRoot}/odoo/odoo/addons,${workspaceRoot}/odoo/dev/odoo-api-rest,${workspaceRoot}/odoo/dev/ouktuva-odoo-addons",
+                "COMMA_SEPARATED_ADDONS_MODULES_RELATIVE_PATH", // "${workspaceFolder}/src/odoo/odoo/addons,${workspaceFolder}/src/odoo/addons,${workspaceFolder}/src/odoo_enterprise" is for Odoo pre-bundled addons
                 "-i",
-                "odoo_api_rest,okteo_ouktuva",
+                "COMMA_SEPARATED_MODULES_NAME_LIST",
                 "-u",
-                "odoo_api_rest,okteo_ouktuva"
+                "COMMA_SEPARATED_MODULES_NAME_LIST",
+                "--dev",
+                "all",
+                // "--log-handler",
+                // ":DEBUG",
             ],
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        },
+        {
+            "name": "Odoo Testing WSL",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "${workspaceFolder}/venv/bin/python3",
+            "program": "${workspaceFolder}/src/odoo/odoo-bin",
+            "args": [
+                "-d",
+                "odoo-db",
+                "-r",
+                "odoo",
+                "-w",
+                "odoo",
+                "--limit-time-real",
+                "999999999",
+                "--addons-path",
+                "COMMA_SEPARATED_ADDONS_MODULES_RELATIVE_PATH", // "${workspaceFolder}/src/odoo/odoo/addons,${workspaceFolder}/src/odoo/addons,${workspaceFolder}/src/odoo_enterprise" is for Odoo pre-bundled addons
+                "-i",
+                "COMMA_SEPARATED_MODULES_NAME_LIST",
+                "-u",
+                "COMMA_SEPARATED_MODULES_NAME_LIST",
+                "--dev",
+                "all",
+                "--test-enable",
+                "--stop-after-init"
+                // "--log-handler",
+                // ":DEBUG",
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        },
+        {
+            "name": "Odoo Debug Tests WSL",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "purpose": [
+                "debug-test"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTEST_ADDOPTS": "--no-cov"
+            }
         }
     ]
 }

@@ -1,0 +1,9 @@
+debugpy
+pydevd
+pydevd-odoo
+pytest==7.4.3
+pytest-odoo
+coverage
+pytest-cov
+pytest-html
+-e src/odoo

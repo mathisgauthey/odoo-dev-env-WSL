@@ -1,5 +1,11 @@
 # About This Repository
 
+## Introduction
+
+My Odoo dev env that I use in WSL. This repository is licensed under the [MIT license](https://mathisgauthey.mit-license.org/).
+
+It is meant to allow for local dev on WSL.
+
 File structure :
 
 ```txt
@@ -50,6 +56,39 @@ You can now start the Odoo server using `./odoo/odoo-bin` and access it using `l
 If you're on VSCODE, simply press `CTRL+F5` to start the server, or `F5` to start the server in debug mode.
 
 If you're using Jetbrains softwares such as PyCharm or Intellij IDEA, inspire yourself from the `.vscode/launch.json` file to setup your launch and debug configuration.
+
+### VS Code Odoo Pytest setup
+
+Follow the WSL setup instructions to get a working Odoo dev environment first.
+
+Then, from your virtual env (remember to use `source venv/bin/activate` to get into your venv), install [pytest 7.4.3](https://pypi.org/project/pytest/7.4.3/) and [pytest-odoo](https://github.com/camptocamp/pytest-odoo) :
+
+```bash
+pip install pytest==7.4.3
+pip install pytest-odoo
+pip install coverage
+pip install pytest-cov
+pip install pytest-html
+```
+
+Then, install Odoo as a pip package :
+
+```bash
+cd ./src/odoo
+pip install -e .
+```
+
+You should now see odoo when doing a `pip list`.
+
+You can now configure PyTest on VS Code, but it should work just fine using the `settings.json` and `config/odoo.conf` files provided in this repository.
+
+Don't forget to create a `.env` file like that :
+
+```env
+ODOO_RC=config/odoo.conf
+ADDONS_PATH=src/odoo/odoo/addons,src/odoo/addons,COMMA_SEPARATED_ADDONS_PATHS
+ADDONS_LIST=COMMA_SEPARATED_ADDONS_NAMES
+```
 
 ### Use and create Odoo modules
 

@@ -1,0 +1,24 @@
+{
+    "python.defaultInterpreterPath": "venv/bin/python3",
+    "autopep8.args": [
+        "--ignore=E501,E301,E302"
+    ],
+    "python.languageServer": "None",
+    "python.analysis.extraPaths": [
+        "src/odoo",
+        "src/odoo_enterprise"
+    ],
+    "search.useIgnoreFiles": false,
+    "python.testing.pytestArgs": [
+        "-v",
+        "--cov=addons",
+        "--cov-report=xml",
+        "--cov-report=html:coverage/report/index.html",
+        "--html=coverage/results/index.html",
+        "addons/",
+        "--odoo-database=odoo-db",
+        "--odoo-config=config/odoo.conf"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+}
