@@ -15,3 +15,4 @@ python3 -m venv venv
 # Install Odoo dependencies inside the python virtual environment
 source venv/bin/activate
 pip install -r src/odoo/requirements.txt
+pip install -r requirements.txt
