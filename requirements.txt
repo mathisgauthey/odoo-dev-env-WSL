@@ -1,3 +1,4 @@
+inotify
 debugpy
 pydevd
 pydevd-odoo
