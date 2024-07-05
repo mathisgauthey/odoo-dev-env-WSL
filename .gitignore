@@ -5,6 +5,8 @@
 addons/
 src/
 coverage/
+config/
+!config/odoo.conf
 
 # ---------------------------------------------------------------------------- #
 #                           Default Python Gitignore                           #
