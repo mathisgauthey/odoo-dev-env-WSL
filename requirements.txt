@@ -1,10 +1,11 @@
-inotify
-debugpy
-pydevd
-pydevd-odoo
-pytest==7.4.3
-pytest-odoo
-coverage
-pytest-cov
-pytest-html
--e src/odoo
+inotify==0.2.10
+debugpy==1.8.2
+pydevd==3.1.0
+pydevd-odoo==1.2.2
+pytest==7.4.4 # Source : https://github.com/camptocamp/pytest-odoo/issues/63
+pytest-odoo==1.0.0
+pytest-cov==5.0.0
+pytest-html==4.1.1
+coverage==7.6.0
+-r ../odoo/requirements.txt
+-e ../odoo
